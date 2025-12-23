@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    /* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Flipkart uses Roboto */
+}
+
+body {
+    background-color: #f1f3f6; /* Light grey background */
+}
+
+/* HEADER STYLES */
+header {
+    background-color: #2874f0; /* Flipkart Blue */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo img {
+    width: 75px;
+}
+
+.explore-plus {
+    font-size: 11px;
+    color: white;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.explore-plus span {
+    color: #ffe500; /* Plus Yellow */
+    font-weight: bold;
+}
+
+.explore-plus img {
+    width: 10px;
+}
+
+/* SEARCH BAR */
+.search-bar {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 2px;
+    flex-grow: 1; /* Takes available space */
+    max-width: 500px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-bar button {
+    border: none;
+    background: transparent;
+    color: #2874f0;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.login-btn {
+    background-color: white;
+    color: #2874f0;
+    border: 1px solid #dbdbdb;
+    padding: 5px 40px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* CATEGORY BAR */
+.categories {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    margin: 10px 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.category-item {
+    text-align: center;
+    cursor: pointer;
+}
+
+.category-item img {
+    width: 64px;
+    height: 64px;
+}
+
+.category-item p {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+    color: #333;
+}
+
+/* HERO SECTION */
+.hero-section {
+    margin: 10px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* PRODUCT GRID SECTION */
+.product-section {
+    background-color: white;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.product-section h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 20px;
+}
+
+.product-card {
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.product-card h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #212121;
+}
+
+.product-card .price {
+    color: #388e3c; /* Green color for price */
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.product-card .brand {
+    font-size: 14px;
+    color: #878787;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-links, .search-bar {
+        display: none; /* Simplify for mobile view example */
+    }
+    .categories {
+        overflow-x: scroll;
+    }
+    .product-grid {
+        justify-content: center;
+    }
+}
+</style>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png" alt="Flipkart Logo">
+                <a href="#" class="explore-plus">Explore <span>Plus</span> <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/plus_aef861.png" alt=""></a>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products, brands and more">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div class="nav-links">
+                <button class="login-btn">Login</button>
+                <a href="#">Become a Seller</a>
+                <div class="dropdown">
+                    <a href="#">More <i class="fa-solid fa-angle-down"></i></a>
+                </div>
+                <a href="#" class="cart"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="categories">
+        <div class="category-item">
+            <img src="https://rukminim1.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png" alt="Grocery">
+            <p>Grocery</p>
+        </div>
+        <div class="category-item">
+            <img src="https://rukminim1.flixcart.com/flap/128/128/image/22fddf3c7da4c4f4.png" alt="Mobiles">
+            <p>Mobiles</p>
+        </div>
+        <div class="category-item">
+            <img src="https://rukminim1.flixcart.com/flap/128/128/image/c12afc017e6f24cb.png" alt="Fashion">
+            <p>Fashion</p>
+        </div>
+        <div class="category-item">
+            <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png" alt="Electronics">
+            <p>Electronics</p>
+        </div>
+        <div class="category-item">
+            <img src="https://d2v5dzhdg4zhx3.cloudfront.net/Test2024/ai_furniture_photoshoot/WEBP/style_3_graphics/001.webp" alt="Home">
+            <p>Furniture</p>
+        </div>
+        <div class="category-item">
+            <img src="https://rukminim1.flixcart.com/flap/128/128/image/0ff199d1bd27eb98.png" alt="Appliances">
+            <p>Appliances</p>
+        </div>
+         <div class="category-item">
+            <img src="https://images.stockcake.com/public/f/b/6/fb6acf1b-fcaa-4152-b48b-6b0e2b0c5374_large/airplane-mid-flight-stockcake.jpg" alt="Travel">
+            <p>Travel</p>
+        </div>
+    </section>
+
+    <section class="hero-section">
+        <div class="hero-image">
+           <img src="https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/aa1b2bdcf519b468.jpg" alt="Sale Banner">
+        </div>
+    </section>
+
+    <section class="product-section">
+        <h3>Best of Electronics</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://rukminim1.flixcart.com/image/200/200/printer/j/j/y/hp-laserjet-m1005-multifunction-original-imadxhzpeb9qbrfg.jpeg" alt="Product">
+                <h4>Printers</h4>
+                <p class="price">From ₹3999</p>
+                <p class="brand">HP, Canon & More</p>
+            </div>
+             <div class="product-card">
+                <img src="https://rukminim1.flixcart.com/image/200/200/knyxqq80/dslr-camera/r/y/x/digital-camera-eos-m50-mark-ii-eos-m50-mark-ii-canon-original-imag2gzkexzqhyhu.jpeg" alt="Product">
+                <h4>Top Mirrorless Cameras</h4>
+                <p class="price">Shop Now!</p>
+                <p class="brand">Canon, Sony</p>
+            </div>
+             <div class="product-card">
+                <img src="https://www.bbassets.com/media/uploads/p/l/40332347_3-philips-india-essentialcare-hair-dryer-with-3-heat-settings-cool-air-function-thermo-protect-technology-black.jpg" alt="Product">
+                <h4>Best of Hair Dryers</h4>
+                <p class="price">From ₹399</p>
+                <p class="brand">Philips, Nova...</p>
+            </div>
+             <div class="product-card">
+                <img src="https://darlingretail.com/cdn/shop/files/iPhone_15_Pink_Pure_Back_iPhone_15_Pink_Pure_Front_2up_Screen__WWEN_cfd96ace-df87-4ab3-a96a-e8e9b13bb7b9_600x.jpg?v=1695104022" alt="Product">
+                <h4>Smartphone</h4>
+                <p class="price">From ₹60,000</p>
+                <p class="brand">Apple, Samsung, Moto</p>
+            </div>
+             <div class="product-card">
+                <img src="https://images.philips.com/is/image/philipsconsumer/3b0fe009e2ce4883b552b0220060489c?wid=700&hei=700&$pnglarge$" alt="Product">
+                <h4>Monitors</h4>
+                <p class="price">From ₹6599</p>
+                <p class="brand">Dell</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
